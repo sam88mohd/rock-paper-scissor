@@ -1,35 +1,38 @@
 // function to generate random selection from array
-function computerPlay(arr) {
-  return arr[Math.floor(Math.random() * 3)];
+function computerPlay() {
+  const array = ["rock", "paper", "scissor"];
+  return array[Math.floor(Math.random() * 3)];
 }
 
-// function to play single round if rock, paper, scissor
+// function to play single round
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "paper") {
-    return "User Loose!";
+    return console.log("User Loose!");
   }
   if (playerSelection === "paper" && computerSelection === "paper") {
-    return "Draw!";
+    return console.log("Draw!");
   }
   if (playerSelection === "scissor" && computerSelection === "paper") {
-    return "User Win!";
+    return console.log("User Win!");
   }
   if (playerSelection === "rock" && computerSelection === "rock") {
-    return "Draw!";
+    return console.log("Draw!");
   }
   if (playerSelection === "paper" && computerSelection === "rock") {
-    return "User Win!";
+    return console.log("User Win!");
   }
   if (playerSelection === "scissor" && computerSelection === "rock") {
-    return "User Loose!";
+    return console.log("User Loose!");
   }
   if (playerSelection === "rock" && computerSelection === "scissor") {
-    return "User Win!";
+    return console.log("User Win!");
   }
   if (playerSelection === "paper" && computerSelection === "scissor") {
-    return "User Loose!";
+    return console.log("User Loose!");
   }
   if (playerSelection === "scissor" && computerSelection === "scissor") {
-    return "Draw!";
+    return console.log("Draw!");
   }
 }
+
+function game() {}
