@@ -9,15 +9,17 @@
   </head>
   <body>
     <div class="score">
-      <p>Score:</p>
+      <span id="player-score">Player Score: <span>0</span></span>
+      <span id="computer-score">Computer Score: <span>0</span></span>
+      <span id="round">Round: <span>1</span></span>
     </div>
     <div class="container">
       <div class="button-div">
-        <button id="rock" value="rock">Rock</button>
-        <button id="paper" value="paper">Paper</button>
-        <button id="scissor" value="scissor">Scissor</button>
+        <button id="rock" data-value="rock">Rock</button>
+        <button id="paper" data-value="paper">Paper</button>
+        <button id="scissor" data-value="scissor">Scissor</button>
       </div>
-      <div id="result"></div>
+      <div class="result" id="result"></div>
     </div>
     <script src="script.js"></script>
   </body>

@@ -14,7 +14,8 @@ body {
   right: 20px;
 }
 
-.score p {
+.score > span {
+  display: block;
   font-size: 30px;
   font-weight: 800;
 }
