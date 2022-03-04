@@ -3,9 +3,9 @@ const array = ["rock", "paper", "scissor"];
 
 // variables
 let round = 1;
-let playerScore = 0;
-let computerScore = 0;
-let drawScore = 0;
+let playerScored = 0;
+let computerScored = 0;
+let drawScored = 0;
 
 // function to generate random selection from array
 function computerPlay() {
@@ -30,9 +30,11 @@ function playRound(playerSelection, computerSelection) {
 // show who win
 function whoWin(playerScore, computerScore) {
   if (playerScore > computerScore) {
-    return alert("You win");
+    return "Congratulations, You win!";
+  } else if (playerScore < computerScore) {
+    return "Oppsss, You loose!";
   } else {
-    return alert("You loose");
+    return "Bore Draw!";
   }
 }
 
@@ -42,6 +44,9 @@ const resultContainer = document.querySelector("#result");
 const playerScoreElement = document.querySelector("#player-score span");
 const computerScoreElement = document.querySelector("#computer-score span");
 const roundElement = document.querySelector("#round span");
+const modal = document.querySelector(".modal");
+const modalText = document.querySelector(".modal-text");
+const playAgainBtn = modalText.nextElementSibling;
 
 // attached event listener to button
 btnContainer.addEventListener("click", (e) => {
@@ -53,20 +58,28 @@ btnContainer.addEventListener("click", (e) => {
       resultContainer.textContent = result;
       switch (result) {
         case "User Win!":
-          playerScore++;
+          playerScored++;
           break;
         case "Computer Win!":
-          computerScore++;
+          computerScored++;
           break;
         default:
-          drawScore++;
+          drawScored++;
       }
       round++;
-      playerScoreElement.textContent = playerScore;
-      computerScoreElement.textContent = computerScore;
+      playerScoreElement.textContent = playerScored;
+      computerScoreElement.textContent = computerScored;
       roundElement.textContent = round;
     } else {
-      whoWin(playerScore, computerScore);
+      const winner = whoWin(playerScored, computerScored);
+      modal.classList.add("active");
+      modalText.textContent = winner;
     }
   }
+});
+
+// add event listener to modal button
+playAgainBtn.addEventListener("click", function () {
+  modal.classList.remove("active");
+  window.location.reload();
 });
